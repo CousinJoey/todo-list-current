@@ -1,0 +1,23 @@
+{
+  "name": "todo-list-current",
+  "version": "1.0.0",
+  "description": "Todo-list created with SOLID ideology (w/ html, css, and js) and webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CousinJoey/todo-list-current.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CousinJoey/todo-list-current/issues"
+  },
+  "homepage": "https://github.com/CousinJoey/todo-list-current#readme",
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
