@@ -1,22 +1,47 @@
+:root {
+   /* #e5e5e5; */
+}
+
 body {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 1fr 6fr;
     margin: 0;
     height: 100vh;
     width: 100vw;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 header {
     grid-row: 1/2;
     grid-column: 1/-1;
-    background-color: blue;
+    background-color: lightcoral;;
+}
+
+.header-container {
+    display: flex;
+    margin-left: 2em;
+    align-items: center;
+    gap: 2em;
+}
+
+.header {
+    font-size: 3em;
+}
+
+.fa-list-check {
+    font-size: 3em;
+}
+
+.fa-xmark {
+    cursor: pointer;
+    font-size: 22px;
 }
 
 nav {
     grid-column: 1/2;
     grid-row: 2/2;
-    background-color: lightblue;
+    background-color: #f8f8f8;
     padding: 2em;
 }
 
@@ -40,6 +65,16 @@ nav {
     gap: 1em;
     cursor: pointer;
     border: 1px solid black;
+    transition: 0.4s;
+}
+
+#home-container:hover {
+    transform: scaleX(1.02);
+    transform-origin: center;
+}
+
+#home-container:active {
+    background-color: #dbdbdb;
 }
 
 #today-container {
@@ -49,21 +84,45 @@ nav {
     gap: 1em;
     cursor: pointer;
     border: 1px solid black;
+    transition: 0.4s;
 }
 
 #today-container:hover {
-    border: 1px solid white
+    transform: scaleX(1.02);
+    transform-origin: center;
 }
 
 #today-container:active {
-    background-color: white;
+    background-color: #dbdbdb;
 }
 
-.week-container {
+#week-container {
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 1em;
+    cursor: pointer;
+    border: 1px solid black;
+    transition: 0.4s;
+}
+
+#week-container:hover {
+    transform: scaleX(1.02);
+    transform-origin: center;
+}
+
+#week-container:active {
+    background-color: #dbdbdb;
+}
+
+.project-item {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.project-item:hover {
+    transform: scaleX(1.02);
+    transform-origin: center;
 }
 
 .project-container {
@@ -78,19 +137,36 @@ nav {
     border-bottom: 2px solid black;
 }
 
+.project-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 0.25em;
+}
+
 #add-project-container {
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 1em;
     cursor: pointer;
+    transition: 0.4s;
+}
+
+#add-project-container:hover {
+    transform: scaleX(1.02);
+    transform-origin: center;
+}
+
+#add-project-container:active {
+    background-color: #dbdbdb;
 }
 
 
 main {
     grid-column: 2/-1;
     grid-row: 2/-1;
-    background-color: red;
+    background-color: white
 }
 
 form {
@@ -102,6 +178,26 @@ form {
         "submitbtn submitbtn";
     margin-top: 20px;
     gap: 10px;
+}
+
+label {
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+}
+
+#priority-select {
+    border: none;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+input {
+    font-size: 16px;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
 }
 
 .toggle-project {
@@ -118,16 +214,146 @@ form {
     transform: translate(-50%,0);
 }
 
-.create-todo-item {
+.todo-button {
+    cursor: pointer;
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    transition: 0.4s;
+}
+
+.todo-container:hover > .fa-square-check {
+    visibility: visible;
+}
+
+.todo-container:hover > .fa-trash-can {
+    visibility: visible;
+}
+
+.todo-container:hover {
+    transform: scaleX(1.01);
+    transform-origin: center;
+}
+
+.todo-item {
+    display: grid;
+    grid-template-columns: 1fr 20fr 1fr;
+    padding-left: 1em;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    padding-right: 4em;
+}
+
+#create-todo-item {
     display: none;
-    background-color: rgba(151, 151, 151, 0.6);
+    background-color: rgba(220, 220, 220, 0.8);
     padding: 10px;
     border-radius: 8px;
 }
 
 #create-project-container {
     display: none;
-    background-color: rgba(151, 151, 151, 0.6);
+    background-color: rgba(220, 220, 220, 0.8);
     padding: 10px;
     border-radius: 8px;
+}
+
+.task-title {
+    display: flex;
+    padding: 1em;
+    justify-content: flex-start;
+}
+
+.task-title-txt {
+    border-bottom: 2px solid black;
+}
+
+.add-todo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.add-todo:hover {
+    transform: scaleX(1.02);
+    transform-origin: center;
+}
+
+#manage-projects-container {
+    display: flex;
+    padding-right: 3em;
+    justify-content: space-between;
+}
+
+#main-task-container .todo-container .fa-square-check,
+#main-task-container .todo-container .fa-trash-can {
+  opacity: 0;
+  transition: opacity ease-in 0.2s;
+}
+
+#main-task-container .todo-container:hover .fa-square-check,
+#main-task-container .todo-container:hover .fa-trash-can {
+  opacity: 1;
+}
+
+
+.fa-square-check {
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.rotate {
+    animation: rotate 0.4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rotate {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+
+.fa-trash-can {
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.fa-plus {
+    cursor: pointer;
+}
+
+button {
+    background-color: lightcoral;
+    color: white;         
+    border-radius: 25px; 
+    padding: 5px 20px; 
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border: none;
+}
+
+.low {
+    background: linear-gradient(-135deg, green 35px,#f8f8f8 0);
+}
+
+.medium {
+    background: linear-gradient(-135deg,yellow 35px,#f8f8f8 0);
+}
+
+.high {
+    background: linear-gradient(-135deg,red 35px,#f8f8f8 0);
 }
